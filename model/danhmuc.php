@@ -18,6 +18,13 @@ function loadall_danhmuc()
     return $listdanhmuc;
 }
 
+function loadall_danhmuc_main()
+{
+    $sql = "SELECT * FROM danhmuc ORDER BY id ASC LIMIT 5";
+    $listdanhmuc = pdo_query($sql);
+    return $listdanhmuc;
+}
+
 function loadone_danhmuc($id)
 {
     $sql = "select * from danhmuc where id=" . $id;

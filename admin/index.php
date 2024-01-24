@@ -31,6 +31,34 @@ if (isset($_GET['act'])) {
             include 'danhmuc/adddm.php';
             break;
 
+        case 'suadm';
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $dm = loadone_danhmuc($_GET['id']);
+            }
+            include 'danhmuc/updatedm.php';
+            break;
+
+        case 'updatedm':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $errors = [];
+                if (empty($name)) {
+                    $errors[] = "Vui lòng nhập dữ liệu";
+                }
+                if (empty($errors)) {
+                    $dm = update_danhmuc($id, $name);
+                    $thongbao = "Cập nhật thành công";
+                    header('location: index.php?act=listdm');
+                } else {
+                    foreach ($errors as $error) {
+                        $thongbao = '<div class="text-danger">' . $error . '</div>';
+                    }
+                }
+            }
+            $listdanhmuc = loadall_danhmuc();
+            include 'danhmuc/updatedm.php';
+            break;
 
 
         case 'listsp':
@@ -79,6 +107,37 @@ if (isset($_GET['act'])) {
 
             $listdanhmuc = loadall_danhmuc();
             include 'sanpham/add.php';
+            break;
+
+        case 'suasp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $sanpham = loadone_sanpham($_GET['id']);
+            }
+            $listdanhmuc = loadall_danhmuc();
+            include 'sanpham/update.php';
+            break;
+
+        case 'updatesp':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $iddm = $_POST['iddm'];
+                $tensp = $_POST['tensp'];
+                $giasp = $_POST['giasp'];
+                $mota = $_POST['mota'];
+                $hinh = $_FILES['hinh']['name'];
+                $target_dir = "../upload/";
+                $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                } else {
+                    // echo "Sorry, there was an error uploading your file.";
+                }
+                update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh);
+                $thongbao = "Cập nhật thành công";
+            }
+            $listdanhmuc = loadall_danhmuc();
+            $listsanpham = loadall_sanpham("", 0);
+            include 'sanpham/listsp.php';
             break;
 
         default:
