@@ -62,6 +62,19 @@ function loadall_sanpham($kyw = "", $iddm = 0)
     return $listsanpham;
 }
 
+function loadall_sanpham_admin($kyw = "", $iddm)
+{
+    $sql = "select * from sanpham where 1";
+    if ($kyw != "") {
+        $sql .= " and name like '%" . $kyw . "%'";
+    }
+    if ($iddm > 0) {
+        $sql .= " and iddm = '" . $iddm . "'";
+    }
+    $sql .= " order by id desc";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
 
 
 
@@ -80,6 +93,13 @@ function load_ten_dm($iddm)
 function loadone_sanpham($id)
 {
     $sql = "select sp.name, sp.price, sp.image, sp.mota, dm.name as namedm from sanpham as sp inner join danhmuc as dm on dm.id = sp.iddm where sp.id=" . $id;
+    $sp = pdo_query_one($sql);
+    return $sp;
+}
+
+function loadone_sanpham_admin($id)
+{
+    $sql = "select * from sanpham where id=" . $id;
     $sp = pdo_query_one($sql);
     return $sp;
 }

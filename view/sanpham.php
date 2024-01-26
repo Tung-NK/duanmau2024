@@ -7,8 +7,7 @@
             </div>
             <div class="modal-body d-flex align-items-center">
                 <div class="input-group w-75 mx-auto d-flex">
-                    <input type="search" class="form-control p-3" placeholder="keywords"
-                           aria-describedby="search-icon-1">
+                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
                     <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                 </div>
             </div>
@@ -36,10 +35,8 @@
                         <form action="index.php?act=sanpham" method="post">
                             <div class="input-group w-100 mb-4 mx-auto d-flex">
 
-                                <input name="kyw" type="text" class="form-control p-3" placeholder="keywords"
-                                       aria-describedby="search-icon-1">
-                                <button name="timkiem" type="submit" id="search-icon-1" class="input-group-text p-3"><i
-                                            class="fa fa-search"></i></button>
+                                <input name="kyw" type="text" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                                <button name="timkiem" type="submit" id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></button>
 
                             </div>
                         </form>
@@ -133,10 +130,9 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="position-relative">
-                                    <img src="view/img/banner-fruits.jpg" class="img-fluid w-100 rounded" alt="">
-                                    <div class="position-absolute"
-                                         style="top: 50%; right: 10px; transform: translateY(-50%);">
-                                        <h3 class="text-secondary fw-bold">Fresh <br> Fruits <br> Banner</h3>
+                                    <img src="view/img/bannersp.jpg" class="img-fluid w-100 rounded" alt="">
+                                    <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                                        <!-- <h3 class="text-secondary fw-bold"> <br> Fruits <br> Banner</h3> -->
                                     </div>
                                 </div>
                             </div>
@@ -184,5 +180,3 @@
         </div>
     </div>
 </div>
-
-

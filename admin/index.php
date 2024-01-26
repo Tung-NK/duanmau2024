@@ -111,7 +111,7 @@ if (isset($_GET['act'])) {
 
         case 'suasp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $sanpham = loadone_sanpham($_GET['id']);
+                $sanpham = loadone_sanpham_admin($_GET['id']);
             }
             $listdanhmuc = loadall_danhmuc();
             include 'sanpham/update.php';
@@ -132,12 +132,11 @@ if (isset($_GET['act'])) {
                 } else {
                     // echo "Sorry, there was an error uploading your file.";
                 }
-
                 update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh);
                 $thongbao = "Cập nhật thành công";
             }
             $listdanhmuc = loadall_danhmuc();
-            $listsanpham = loadall_sanpham("", 0);
+            $listsanpham = loadall_sanpham_admin("", 0);
             include 'sanpham/listsp.php';
             break;
 

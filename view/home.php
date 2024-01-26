@@ -217,11 +217,11 @@
                                             <div class="col-md-6 col-lg-4">
                                                 <a href="#">
                                                     <div class="service-item bg-secondary rounded border border-secondary">
-                                                        <img src="view/img/featur-1.jpg"
+                                                        <img src="view/img/home2.jpg"
                                                              class="img-fluid rounded-top w-100" alt="">
                                                         <div class="px-4 rounded-bottom">
                                                             <div class="service-content bg-primary text-center p-4 rounded">
-                                                                <h5 class="text-white">Fresh Apples</h5>
+                                                                <h5 class="text-white">Ceffylo</h5>
                                                                 <h3 class="mb-0">20% OFF</h3>
                                                             </div>
                                                         </div>
@@ -231,11 +231,11 @@
                                             <div class="col-md-6 col-lg-4">
                                                 <a href="#">
                                                     <div class="service-item bg-dark rounded border border-dark">
-                                                        <img src="view/img/featur-2.jpg"
+                                                        <img src="view/img/home3.jpg"
                                                              class="img-fluid rounded-top w-100" alt="">
                                                         <div class="px-4 rounded-bottom">
                                                             <div class="service-content bg-light text-center p-4 rounded">
-                                                                <h5 class="text-primary">Tasty Fruits</h5>
+                                                                <h5 class="text-primary">CFS</h5>
                                                                 <h3 class="mb-0">Free delivery</h3>
                                                             </div>
                                                         </div>
@@ -245,12 +245,12 @@
                                             <div class="col-md-6 col-lg-4">
                                                 <a href="#">
                                                     <div class="service-item bg-primary rounded border border-primary">
-                                                        <img src="view/img/featur-3.jpg"
+                                                        <img src="view/img/home4.jpg"
                                                              class="img-fluid rounded-top w-100" alt="">
                                                         <div class="px-4 rounded-bottom">
                                                             <div class="service-content bg-secondary text-center p-4 rounded">
-                                                                <h5 class="text-white">Exotic Vegitable</h5>
-                                                                <h3 class="mb-0">Discount 30$</h3>
+                                                                <h5 class="text-white">New Design</h5>
+                                                                <h3 class="mb-0">Discount 5%</h3>
                                                             </div>
                                                         </div>
                                                     </div>
