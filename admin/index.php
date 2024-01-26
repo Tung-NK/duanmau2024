@@ -132,6 +132,7 @@ if (isset($_GET['act'])) {
                 } else {
                     // echo "Sorry, there was an error uploading your file.";
                 }
+
                 update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh);
                 $thongbao = "Cập nhật thành công";
             }

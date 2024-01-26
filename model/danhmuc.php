@@ -18,6 +18,16 @@ function loadall_danhmuc()
     return $listdanhmuc;
 }
 
+function loadall_danhmuc_dm()
+{
+    $sql = "SELECT dm.id AS id, dm.name AS category_name, COUNT(sp.id) AS product_count
+FROM danhmuc dm
+LEFT JOIN sanpham sp ON dm.id = sp.iddm
+GROUP BY dm.id, dm.name;";
+    $listdm = pdo_query($sql);
+    return $listdm;
+}
+
 function loadall_danhmuc_main()
 {
     $sql = "SELECT * FROM danhmuc ORDER BY id ASC LIMIT 5";

@@ -18,48 +18,52 @@ function delete_sanpham($id)
      return $listsanpham;
  }
 
-//function load_sanpham_pricemin()
-//{
-//    $sql = "SELECT * FROM `sanpham` ORDER BY `price` ASC, RAND() LIMIT 10";
-//    $listsanpham = pdo_query($sql);
-//    return $listsanpham;
-//}
-//
-//function load_sanpham_new()
-//{
-//    $sql = "SELECT * FROM sanpham ORDER BY id DESC";
-//    $listsanpham = pdo_query($sql);
-//    return $listsanpham;
-//}
-//
-//
-//function load_sanpham_featured()
-//{
-//    $sql = "SELECT * FROM sanpham ORDER BY RAND()";
-//    $listsanpham = pdo_query($sql);
-//    return $listsanpham;
-//}
-//
+
+function load_sanpham_new()
+{
+    $sql = "SELECT * FROM sanpham ORDER BY id DESC";
+    $spnew = pdo_query($sql);
+    return $spnew;
+}
+
+function load_sanpham_recommend()
+{
+    $sql = "SELECT * FROM sanpham ORDER BY RAND()";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+
+
 //function load_sanpham_dmfeatured()
 //{
 //    $sql = "SELECT * FROM sanpham WHERE iddm = 1";
 //    $listsanpham = pdo_query($sql);
 //    return $listsanpham;
 //}
-
-function loadall_sanpham($kyw = "", $iddm)
+//
+function loadall_sanpham($kyw = "", $iddm = 0)
 {
-    $sql = "select * from sanpham where 1";
+    $sql = "SELECT sp.*, dm.name AS category_name
+            FROM sanpham sp
+            LEFT JOIN danhmuc dm ON sp.iddm = dm.id
+            WHERE 1";
+
     if ($kyw != "") {
-        $sql .= " and name like '%" . $kyw . "%'";
+        $sql .= " AND sp.name LIKE '%" . $kyw . "%'";
     }
+
     if ($iddm > 0) {
-        $sql .= " and iddm = '" . $iddm . "'";
+        $sql .= " AND sp.iddm = '" . $iddm . "'";
     }
-    $sql .= " order by id desc";
+
+    $sql .= " ORDER BY sp.id DESC";
+
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
+
+
+
 
 function load_ten_dm($iddm)
 {

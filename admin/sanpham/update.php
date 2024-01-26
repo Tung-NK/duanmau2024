@@ -76,7 +76,7 @@ if (is_file($hinhpath)) {
     </div>
     <div class="border-top text-center">
         <div class="card-body">
-             <input type="hidden" name="id" value="<?=$id?>">
+            <input type="hidden" name="id" value="<?=$id?>">
             <input type="submit" name="capnhat" class="btn btn-primary" value="Cập nhật">
             <input type="reset" class="btn btn-danger" value="Nhập lại">
         </div>
