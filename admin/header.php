@@ -222,7 +222,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Trang chủ</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listdm" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Danh mục</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listsp" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Sản phẩm</span></a></li>
-                        <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list" aria-expanded="false"><i class="fas fa-user-circle"></i><span class="hide-menu">Khách hàng</span></a></li> -->
+                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list" aria-expanded="false"><i class="fas fa-user-circle"></i><span class="hide-menu">Khách hàng</span></a></li>
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=thongke" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Thống kê</span></a></li> -->
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=binhluan" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Bình luận</span></a></li> -->
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listdh" aria-expanded="false"><i class="fas fa-shopping-basket"></i><span class="hide-menu">Đơn hàng</span></a></li> -->
@@ -318,7 +318,7 @@
                         </a>
                     </div> -->
                     <!-- Column -->
-                    <!-- <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
                         <a href="index.php?act=list">
                             <div class="card card-hover">
                                 <div class="box bg-info text-center">
@@ -327,7 +327,7 @@
                                 </div>
                             </div>
                         </a>
-                    </div> -->
+                    </div>
                     <!-- Column -->
                     <!-- <div class="col-md-6 col-lg-2 col-xlg-3">
                         <a href="index.php?act=thongke">

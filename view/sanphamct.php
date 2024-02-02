@@ -1,4 +1,61 @@
-!--Single Product Start-- >
+<style>
+    .row {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .boxfooter {
+        width: 100%;
+        display: flex;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .boxfooter form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .boxfooter input[type="text"],
+    .boxfooter input[type="submit"] {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: calc(100% - 22px);
+    }
+
+    .boxfooter input[type="submit"] {
+        flex: 10;
+        background-color: #303030;
+        color: white;
+        cursor: pointer;
+    }
+
+    .boxfooter input[type="submit"]:hover {
+        background-color: #81C408;
+        color: #45595B;
+    }
+
+    .boxcontent2 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .binhluan table td {
+        flex: 10;
+        padding: 8px;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
 <div class="container-fluid py-5 mt-5">
     <div class="container py-5">
         <div class="row g-4 mb-5">
@@ -161,43 +218,34 @@
                     </div>
 
 
-                    <form action="#">
+
                         <h4 class="mb-5 fw-bold"> Leave a Reply </h4>
                         <div class="row g-4">
-                            <div class="col-lg-6">
-                                <div class="border-bottom rounded">
-                                    <input type="text" class="form-control border-0 me-4" placeholder="Yur Name *">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="border-bottom rounded">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email *">
-                                </div>
-                              </div>
-                            <div class="col-lg-12">
-                                <div class="border-bottom rounded my-4">
-                                    <textarea name="" id="" class="form-control border-0" cols="30" rows="8"
-                                              placeholder="Your Review *" spellcheck="false"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="d-flex justify-content-between py-3 mb-5">
-                                    <div class="d-flex align-items-center">
-                                        <p class="mb-0 me-3"> Please rate:</p>
-                                        <div class="d-flex align-items-center" style="font-size: 12px;">
-                                            <i class="fa fa-star text-muted"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
+                            <div class="tab-content thumb-content">
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                                <script>
+                                    $(document).ready(function() {
+                                        $("#binhluan").load("view/binhluan/binhluanform.php", {
+                                            idpro: <?= $id ?>
+                                        });
+
+                                    });
+                                </script>
+
+                                <div class="row" id="binhluan">
+
+                                    <div class="boxfooter box_search formtaikhoan">
+                                        <form action="index.php?act=sanphamct" method="post">
+                                            <input type="hidden" name="idpro" value="<?= $id ?>">
+                                            <input type="text" name="noidung">
+                                            <input type="submit" name="guibinhluan" value="Gửi bình luận">
+                                        </form>
                                     </div>
-                                    <a href="#" class="btn border border-secondary text-primary rounded-pill px-4 py-3">
-                                        Post Comment </a>
                                 </div>
+
                             </div>
                         </div>
-                    </form>
+
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3">
