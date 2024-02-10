@@ -1,81 +1,23 @@
-<style>
-    .row {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .boxfooter {
-        width: 100%;
-        display: flex;
-        background-color: #f9f9f9;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-
-    .boxfooter form {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-
-    .boxfooter input[type="text"],
-    .boxfooter input[type="submit"] {
-        padding: 10px;
-        margin: 5px 0;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        width: calc(100% - 22px);
-    }
-
-    .boxfooter input[type="submit"] {
-        flex: 10;
-        background-color: #303030;
-        color: white;
-        cursor: pointer;
-    }
-
-    .boxfooter input[type="submit"]:hover {
-        background-color: #81C408;
-        color: #45595B;
-    }
-
-    .boxcontent2 {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-    }
-
-    .binhluan table td {
-        flex: 10;
-        padding: 8px;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-
 <div class="container-fluid py-5 mt-5">
     <div class="container py-5">
         <div class="row g-4 mb-5">
             <div class="col-lg-8 col-xl-9">
                 <div class="row g-4">
                     <?php
-                        extract($onesp);
-                        $image=$img_path.$image;
-                        echo '<div class="col-lg-6">
+                    extract($onesp);
+                    $image = $img_path . $image;
+                    echo '<div class="col-lg-6">
                         <div class="rounded">
                             <a href="#">
-                                <img src="'.$image.'" class="img-fluid rounded" alt="Image">
+                                <img src="' . $image . '" class="img-fluid rounded" alt="Image">
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <h4 class="fw-bold mb-3">'.$name.'</h4>
-                        <p class="mb-3"> Category: '.$namedm.' </p>
-                        <h5 class="fw-bold mb-3">'.$price.'VND</h5>
-                        <p class="mb-4">'.$mota.'</p>
+                        <h4 class="fw-bold mb-3">' . $name . '</h4>
+                        <p class="mb-3"> Category: ' . $namedm . ' </p>
+                        <h5 class="fw-bold mb-3">' . $price . 'VND</h5>
+                        <p class="mb-4">' . $mota . '</p>
                         <div class="input-group quantity mb-5" style="width: 100px;">
                             <div class="input-group-btn">
                                 <button class="btn btn-sm btn-minus rounded-circle bg-light border">
@@ -218,95 +160,110 @@
                     </div>
 
 
-
-                        <h4 class="mb-5 fw-bold"> Leave a Reply </h4>
-                        <div class="row g-4">
-                            <div class="tab-content thumb-content">
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                                <script>
-                                    $(document).ready(function() {
-                                        $("#binhluan").load("view/binhluan/binhluanform.php", {
-                                            idpro: <?= $id ?>
-                                        });
-
-                                    });
-                                </script>
-
-                                <div class="row" id="binhluan">
-
-                                    <div class="boxfooter box_search formtaikhoan">
-                                        <form action="index.php?act=sanphamct" method="post">
-                                            <input type="hidden" name="idpro" value="<?= $id ?>">
-                                            <input type="text" name="noidung">
-                                            <input type="submit" name="guibinhluan" value="Gửi bình luận">
-                                        </form>
+                    <div class="tab-content thumb-content">
+                        <form action="#">
+                            <h4 class="mb-5 fw-bold">Leave a Reply</h4>
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="border-bottom rounded">
+                                        <input type="text" class="form-control border-0 me-4" placeholder="Yur Name *">
                                     </div>
                                 </div>
-
+                                <div class="col-lg-6">
+                                    <div class="border-bottom rounded">
+                                        <input type="email" class="form-control border-0" placeholder="Your Email *">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="border-bottom rounded my-4">
+                                        <textarea name="" id="" class="form-control border-0" cols="30" rows="8"
+                                                  placeholder="Your Review *" spellcheck="false"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="d-flex justify-content-between py-3 mb-5">
+                                        <div class="d-flex align-items-center">
+                                            <p class="mb-0 me-3">Please rate:</p>
+                                            <div class="d-flex align-items-center" style="font-size: 12px;">
+                                                <i class="fa fa-star text-muted"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <a href="#"
+                                           class="btn border border-secondary text-primary rounded-pill px-4 py-3"> Post
+                                            Comment</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </form>
 
+                    </div>
                 </div>
+
             </div>
-            <div class="col-lg-4 col-xl-3">
-                <div class="row g-4 fruite">
-                    <div class="col-lg-12">
-<!--                        <div class="input-group w-100 mx-auto d-flex mb-4">-->
-<!--                            <input type="search" class="form-control p-3" placeholder="keywords" aria --->
-<!--                                   describedby="search-icon-1">-->
-<!--                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>-->
-<!--                        </div>-->
-                        <div class="mb-4">
-                            <h4> Categories</h4>
-                            <ul class="list-unstyled fruite-categorie">
-                                <?php
-                                    foreach ($listdm as $dmct){
-                                        extract($dmct);
-                                        $linkdm = "index.php?act=sanpham&iddm=" . $id;
-                                        echo '<li>
+        </div>
+        <div class="col-lg-4 col-xl-3">
+            <div class="row g-4 fruite">
+                <div class="col-lg-12">
+                    <!--                        <div class="input-group w-100 mx-auto d-flex mb-4">-->
+                    <!--                            <input type="search" class="form-control p-3" placeholder="keywords" aria --->
+                    <!--                                   describedby="search-icon-1">-->
+                    <!--                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>-->
+                    <!--                        </div>-->
+                    <div class="mb-4">
+                        <h4> Categories</h4>
+                        <ul class="list-unstyled fruite-categorie">
+                            <?php
+                            foreach ($listdm as $dmct) {
+                                extract($dmct);
+                                $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                echo '<li>
                                     <div class="d-flex justify-content-between fruite-name">
-                                        <a href="'.$linkdm.'"><i class="fas fa-apple-alt me-2"></i> '.$category_name.'</a>
-                                        <span>'.$product_count.'</span>
+                                        <a href="' . $linkdm . '"><i class="fas fa-apple-alt me-2"></i> ' . $category_name . '</a>
+                                        <span>' . $product_count . '</span>
                                     </div>
                                 </li>';
-                                    }
-                                ?>
-                            </ul>
-                        </div>
+                            }
+                            ?>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <h1 class="fw-bold mb-0"> Related products </h1>
-        <div class="vesitable">
-            <div class="owl-carousel vegetable-carousel justify-content-center">
-                <?php
-                    foreach ($recom as $sp){
-                        extract($sp);
-                        $linksp = "index.php?act=sanphamct&idsp=" . $id;
-                        $hinh = $img_path . $image;
-                        $mota_trimmed = strlen($mota) > 150 ? substr($mota, 0, 150) . '...' : $mota;
-                        echo ' <div class="border border-primary rounded position-relative vesitable-item">
-                    <a href="'.$linksp.'">
+    </div>
+    <h1 class="fw-bold mb-0"> Related products </h1>
+    <div class="vesitable">
+        <div class="owl-carousel vegetable-carousel justify-content-center">
+            <?php
+            foreach ($recom as $sp) {
+                extract($sp);
+                $linksp = "index.php?act=sanphamct&idsp=" . $id;
+                $hinh = $img_path . $image;
+                $mota_trimmed = strlen($mota) > 150 ? substr($mota, 0, 150) . '...' : $mota;
+                echo ' <div class="border border-primary rounded position-relative vesitable-item">
+                    <a href="' . $linksp . '">
                     <div class="vesitable-img">
-                        <img src="'.$hinh.'" class="img-fluid w-100 rounded-top" alt="">
+                        <img src="' . $hinh . '" class="img-fluid w-100 rounded-top" alt="">
                     </div>
                     <div class="p-4 pb-0 rounded-bottom">
-                        <h4> '.$name.'</h4>
-                        <p>'.$mota_trimmed.'</p>
+                        <h4> ' . $name . '</h4>
+                        <p>' . $mota_trimmed . '</p>
                         <div class="d-flex justify-content-between flex-lg-wrap">
-                            <p class="text-dark fs-5 fw-bold"> '.$price.' </p>
+                            <p class="text-dark fs-5 fw-bold"> ' . $price . ' </p>
                             <a href="#" class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
                                         class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart </a>
                         </div>
                     </div>
                     </a>
                 </div>';
-                    }
-                ?>
+            }
+            ?>
 
-            </div>
         </div>
     </div>
+</div>
 </div>
 <!--Single Product End-- >
