@@ -92,7 +92,7 @@ function load_ten_dm($iddm)
 
 function loadone_sanpham($id)
 {
-    $sql = "select sp.name, sp.price, sp.image, sp.mota, dm.name as namedm from sanpham as sp inner join danhmuc as dm on dm.id = sp.iddm where sp.id=" . $id;
+    $sql = "select sp.id, sp.name, sp.price, sp.image, sp.mota, dm.name as namedm from sanpham as sp inner join danhmuc as dm on dm.id = sp.iddm where sp.id=" . $id;
     $sp = pdo_query_one($sql);
     return $sp;
 }
