@@ -14,9 +14,13 @@ $spnew = loadall_sanpham_home();
 $dsdm_main = loadall_danhmuc_main();
 $newPro = load_sanpham_new();
 
+//$idpro = $_REQUEST['idpro'];
+
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
+
+
         //Tài khoản
         case 'view_tk':
             include 'view/taikhoan/view_tk.php';
@@ -150,6 +154,8 @@ if (isset($_GET['act'])) {
                 $onesp = loadone_sanpham($_GET['idsp']);
                 $listdm = loadall_danhmuc_dm();
                 $recom = load_sanpham_recommend();
+//                $idpro = $_GET['idsp'];
+//                $dsbl = load_binhluan($idpro);
                 include 'view/sanphamct.php';
             } else {
                 include 'view/home.php';

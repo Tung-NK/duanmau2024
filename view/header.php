@@ -75,12 +75,12 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Category</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
                             <?php
-                            if (!empty($listdanhmuc) && is_array($listdanhmuc)) {
-                                foreach ($listdanhmuc as $dm_header) {
+                                $dsdm_main = loadall_danhmuc_main();
+                                foreach ($dsdm_main as $dm_header) {
                                     extract($dm_header);
-                                    echo '<a href="#" class="dropdown-item">' . $name . '</a>';
+                                    $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                    echo '<a href="'.$linkdm.'" class="dropdown-item">' . $name . '</a>';
                                 }
-                            }
                             ?>
                         </div>
                     </div>
