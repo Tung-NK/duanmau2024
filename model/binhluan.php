@@ -19,7 +19,9 @@ function delete_binhluan($id){
 }
 
 function list_binhluan(){
-    $sql = "select * from binhluan";
+    $sql = "select binhluan.id, binhluan.noidung, binhluan.ngaybinhluan, acount.user, sanpham.name from binhluan
+    INNER JOIN acount ON binhluan.iduser = acount.id
+    INNER JOIN sanpham on binhluan.idpro = sanpham.id";
     $listbinhluan=pdo_query($sql);
     return $listbinhluan;
 }

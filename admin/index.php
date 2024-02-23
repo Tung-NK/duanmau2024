@@ -5,6 +5,8 @@ include 'header.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
 include '../model/taikhoan.php';
+include '../model/binhluan.php';
+include '../model/thongke.php';
 include '../global.php';
 
 if (isset($_GET['act'])) {
@@ -69,7 +71,7 @@ if (isset($_GET['act'])) {
             include 'danhmuc/listdm.php';
             break;
 
-    //Sản phẩm
+        //Sản phẩm
         case 'listsp':
             if (isset($_POST['listOK']) && ($_POST['listOK'])) {
                 $kyw = $_POST['kyw'];
@@ -191,6 +193,33 @@ if (isset($_GET['act'])) {
             }
             $listtk = load_taikhoan("", 0);
             include 'taikhoan/list.php';
+            break;
+
+        //Bình luận
+        case 'binhluan':
+            $listbinhluan = list_binhluan();
+            include 'binhluan/listbl.php';
+            break;
+
+        case 'xoabl':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_binhluan($_GET['id']);
+            }
+            $listbinhluan = list_binhluan();
+            include 'binhluan/listbl.php';
+            break;
+
+        //thong kê
+        case 'thongke':
+            $thongke_data = loadall_thongke();
+            $lowest_sold_product = getLowestSoldProduct();
+            include 'thongke/listtk.php';
+            break;
+
+        case 'bieudo':
+            $listthongke = doanh_so();
+            // $lowest_sold_product = getLowestSoldProduct();
+            include 'thongke/thongke.php';
             break;
 
         default:
