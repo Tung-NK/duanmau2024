@@ -75,12 +75,12 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Category</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
                             <?php
-                                $dsdm_main = loadall_danhmuc_main();
-                                foreach ($dsdm_main as $dm_header) {
-                                    extract($dm_header);
-                                    $linkdm = "index.php?act=sanpham&iddm=" . $id;
-                                    echo '<a href="'.$linkdm.'" class="dropdown-item">' . $name . '</a>';
-                                }
+                            $dsdm_main = loadall_danhmuc_main();
+                            foreach ($dsdm_main as $dm_header) {
+                                extract($dm_header);
+                                $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                echo '<a href="' . $linkdm . '" class="dropdown-item">' . $name . '</a>';
+                            }
                             ?>
                         </div>
                     </div>
@@ -99,10 +99,21 @@
                         <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                                 data-bs-toggle="modal" data-bs-target="#searchModal"><i
                                     class="fas fa-search text-primary"></i></button>
-                        <a href="#" class="position-relative me-4 my-auto">
-                            <i class="fa fa-shopping-bag fa-2x"></i>
-                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-                                  style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                        <a href="index.php?act=viewcart" class="position-relative me-4 my-auto">
+                            <?php
+                            if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
+                                $soLuongSanPham = count($_SESSION['mycart']);
+
+                                ?>
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                      style="top: -5px; left: 15px; height: 20px; min-width: 20px;"><?php echo $soLuongSanPham; ?></span>
+                            <?php } else { ?>
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                      style="top: -5px; left: 15px; height: 20px; min-width: 20px;">0</span>
+                            <?php } ?>
+
                         </a>
                         <a href="index.php?act=view_tk" class="my-auto">
                             <i class="fas fa-user fa-2x"></i>
@@ -117,10 +128,21 @@
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                             data-bs-toggle="modal" data-bs-target="#searchModal"><i
                                 class="fas fa-search text-primary"></i></button>
-                    <a href="#" class="position-relative me-4 my-auto">
-                        <i class="fa fa-shopping-bag fa-2x"></i>
-                        <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-                              style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                    <a href="index.php?act=viewcart" class="position-relative me-4 my-auto">
+                        <?php
+                        if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
+                            $soLuongSanPham = count($_SESSION['mycart']);
+
+                            ?>
+                            <i class="fa fa-shopping-bag fa-2x"></i>
+                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                  style="top: -5px; left: 15px; height: 20px; min-width: 20px;"><?php echo $soLuongSanPham; ?></span>
+                        <?php } else { ?>
+                            <i class="fa fa-shopping-bag fa-2x"></i>
+                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                  style="top: -5px; left: 15px; height: 20px; min-width: 20px;">0</span>
+                        <?php } ?>
+
                     </a>
                     <a href="index.php?act=dangki" class="my-auto">
                         <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>

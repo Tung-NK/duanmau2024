@@ -31,14 +31,13 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart 
+                                            <div class="">
                                                         <form action="index.php?act=addtocart" method="post">
                                                             <input type="hidden" name="id" value="' . $id . '">
                                                             <input type="hidden" name="name" value="' . $name . '">
                                                             <input type="hidden" name="image" value="' . $image . '">
                                                             <input type="hidden" name="price" value="' . $onesp['price'] . '">
-                                                            <a class=" border-secondary rounded-pill px-4 py-2 mb-4 text-primary> <input type="submit" name="addtocart" value="ADD"></a>
+                                                            <input class="border-secondary rounded-pill px-4 py-2 mb-4 text-primary" type="submit" name="addtocart" value="Add to cart">
                                                         </form>
                                                         
                                                         </div>

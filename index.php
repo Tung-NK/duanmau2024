@@ -6,6 +6,7 @@ include 'model/sanpham.php';
 include 'model/danhmuc.php';
 include 'model/taikhoan.php';
 include 'model/binhluan.php';
+include 'model/cart.php';
 include 'view/header.php';
 include 'global.php';
 
@@ -15,10 +16,111 @@ $dsdm_main = loadall_danhmuc_main();
 $newPro = load_sanpham_new();
 
 //$idpro = $_REQUEST['idpro'];
-
+if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
+        // Thanh toán
+
+        case 'bill':
+            if (isset($_POST['bill']) && ($_POST['bill'])) {
+                $iduser = isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0;
+                $name = $_POST['user'];
+                $email = $_POST['email'];
+                $diachi = $_POST['diachi'];
+                $phone = $_POST['phone'];
+                $pttt = isset($_POST['pttt']) ? $_POST['pttt'] : '';
+                $ngaydathang = date("Y-m-d H:i:s");
+                $tongdonhang = tongdonhang();
+
+                $errors = [];
+
+                if (empty($name)) {
+                    $errors['name'] = "<span style='color:red;'>Vui lòng nhập tên</span>";
+                }
+
+                if (empty($email)) {
+                    $errors['email'] = "<span style='color:red;'>Vui lòng nhập email</span>";
+                } elseif (!preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email)) {
+                    $errors['email'] = "<span style='color:red;'>Email không hợp lệ</span>";
+                }
+
+                if (empty($diachi)) {
+                    $errors['diachi'] = "<span style='color:red;'>Vui lòng nhập địa chỉ</span>";
+                }
+
+                if (empty($phone)) {
+                    $errors['phone'] = "<span style='color:red;'>Vui lòng nhập số điện thoại</span>";
+                } elseif (!preg_match("/^[0-9]{10,11}$/", $phone)) {
+                    $errors['phone'] = "<span style='color:red;'>Số điện thoại không hợp lệ</span>";
+                }
+
+                if (empty($pttt)) {
+                    $errors['pttt'] = "<span style='color:red;'>Vui lòng chọn phương thức thanh toán</span>";
+                }
+
+                // Kiểm tra nếu có lỗi, hiển thị thông báo lỗi và kết thúc
+                if (!empty($errors)) {
+                    include 'view/cart/thanhtoan.php'; // Đưa thông tin lỗi đến view để hiển thị
+                    exit();
+                }
+
+                $idbill = insert_bill($iduser, $name, $email, $diachi, $phone, $pttt, $ngaydathang, $tongdonhang);
+                foreach ($_SESSION['mycart'] as $cart) {
+                    insert_cart($_SESSION['user']['id'], $cart['0'], $cart['1'], $cart['2'], $cart['3'], $cart['4'], $cart['5'], $idbill);
+                }
+                unset($_SESSION['mycart']);
+
+                $listbill = loadone_bill($idbill);
+                $bill = loadall_cart($idbill);
+                include 'view/cart/bill.php';
+            }
+            break;
+
+        case 'thanhtoan':
+            include 'view/cart/thanhtoan.php';
+            break;
+
+        //Giỏ hàng
+        case 'delcart':
+            if (isset($_POST['idcart'])) {
+                $_SESSION['mycart'] = [];
+            } else {
+                array_splice($_SESSION['mycart'], $_POST['idcart'], 1);
+            }
+            header('location: index.php?act=viewcart');
+            break;
+
+        case 'addtocart':
+            if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $image = $_POST['image'];
+                $price = $_POST['price'];
+                $soluong = 1;
+                $ttien = $price * $soluong;
+
+                $productExists = false;
+                foreach ($_SESSION['mycart'] as $key => $cart) {
+                    if ($cart[0] == $id) {
+                        $_SESSION['mycart'][$key][4] += 1;
+                        $_SESSION['mycart'][$key][5] = $_SESSION['mycart'][$key][3] * $_SESSION['mycart'][$key][4];
+                        $productExists = true;
+                        break;
+                    }
+                }
+
+                if (!$productExists) {
+                    $spadd = [$id, $image, $name, $price, $soluong, $ttien];
+                    array_push($_SESSION['mycart'], $spadd);
+                }
+            }
+            header('location: index.php?act=viewcart');
+            break;
+
+        case 'viewcart':
+            include 'view/cart/viewcart.php';
+            break;
 
 
         //Tài khoản
