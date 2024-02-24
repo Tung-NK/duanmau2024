@@ -197,10 +197,13 @@
                                             <p>' . $mota_trimmed . '</p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mt-1 mb-0">' . $price . 'đ</p>
-                                                <a href="#"
-                                                   class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                    cart</a>
+                                                <form action="index.php?act=addtocart" method="post">
+                                                            <input type="hidden" name="id" value="' . $id . '">
+                                                            <input type="hidden" name="name" value="' . $name . '">
+                                                            <input type="hidden" name="image" value="' . $image . '">
+                                                            <input type="hidden" name="price" value="' . $sp['price'] . '">
+                                                            <input class="border-secondary rounded-pill px-4 py-2 mb-4 text-primary" type="submit" name="addtocart" value="Add to cart">
+                                                        </form>
                                             </div>
                                         </div>
                                         </a>
@@ -285,10 +288,13 @@
                                                     <p>' . $mota_trimmed . '</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">' . $price . 'đ</p>
-                                                        <a href="#"
-                                                           class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                            Add to cart</a>
+                                                        <form action="index.php?act=addtocart" method="post">
+                                                            <input type="hidden" name="id" value="' . $id . '">
+                                                            <input type="hidden" name="name" value="' . $name . '">
+                                                            <input type="hidden" name="image" value="' . $image . '">
+                                                            <input type="hidden" name="price" value="' . $new['price'] . '">
+                                                            <input class="border-secondary rounded-pill px-4 py-2 mb-4 text-primary" type="submit" name="addtocart" value="Add to cart">
+                                                        </form>
                                                     </div>
                                                 </div>
                                                 </a>
@@ -336,196 +342,6 @@
                                     </div>
                                 </div>
                                 <!-- Banner Section End -->
-
-
-                                <!-- Bestsaler Product Start -->
-                                <div class="container-fluid py-5">
-                                    <div class="container py-5">
-                                        <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-                                            <h1 class="display-4">Bestseller Products</h1>
-                                            <p>Latin words, combined with a handful of model sentence structures, to
-                                                generate Lorem Ipsum which looks
-                                                reasonable.</p>
-                                        </div>
-                                        <div class="row g-4">
-                                            <div class="col-lg-6 col-xl-4">
-                                                <div class="p-4 rounded bg-light">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            <img src="view/img/best-product-1.jpg"
-                                                                 class="img-fluid rounded-circle w-100" alt="">
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <a href="#" class="h5">Organic Tomato</a>
-                                                            <h4 class="mb-3">3.12 $</h4>
-                                                            <a href="#"
-                                                               class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-4">
-                                                <div class="p-4 rounded bg-light">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            <img src="view/img/best-product-2.jpg"
-                                                                 class="img-fluid rounded-circle w-100" alt="">
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <a href="#" class="h5">Organic Tomato</a>
-
-                                                            <h4 class="mb-3">3.12 $</h4>
-                                                            <a href="#"
-                                                               class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-4">
-                                                <div class="p-4 rounded bg-light">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            <img src="view/img/best-product-3.jpg"
-                                                                 class="img-fluid rounded-circle w-100" alt="">
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <a href="#" class="h5">Organic Tomato</a>
-
-                                                            <h4 class="mb-3">3.12 $</h4>
-                                                            <a href="#"
-                                                               class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-4">
-                                                <div class="p-4 rounded bg-light">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            <img src="view/img/best-product-4.jpg"
-                                                                 class="img-fluid rounded-circle w-100" alt="">
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <a href="#" class="h5">Organic Tomato</a>
-
-                                                            <h4 class="mb-3">3.12 $</h4>
-                                                            <a href="#"
-                                                               class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-4">
-                                                <div class="p-4 rounded bg-light">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            <img src="view/img/best-product-5.jpg"
-                                                                 class="img-fluid rounded-circle w-100" alt="">
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <a href="#" class="h5">Organic Tomato</a>
-
-                                                            <h4 class="mb-3">3.12 $</h4>
-                                                            <a href="#"
-                                                               class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-4">
-                                                <div class="p-4 rounded bg-light">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            <img src="view/img/best-product-6.jpg"
-                                                                 class="img-fluid rounded-circle w-100" alt="">
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <a href="#" class="h5">Organic Tomato</a>
-
-                                                            <h4 class="mb-3">3.12 $</h4>
-                                                            <a href="#"
-                                                               class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6 col-xl-3">
-                                                <div class="text-center">
-                                                    <img src="view/img/fruite-item-1.jpg" class="img-fluid rounded"
-                                                         alt="">
-                                                    <div class="py-4">
-                                                        <a href="#" class="h5">Organic Tomato</a>
-
-                                                        <h4 class="mb-3">3.12 $</h4>
-                                                        <a href="#"
-                                                           class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                            Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6 col-xl-3">
-                                                <div class="text-center">
-                                                    <img src="view/img/fruite-item-2.jpg" class="img-fluid rounded"
-                                                         alt="">
-                                                    <div class="py-4">
-                                                        <a href="#" class="h5">Organic Tomato</a>
-
-                                                        <h4 class="mb-3">3.12 $</h4>
-                                                        <a href="#"
-                                                           class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                            Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6 col-xl-3">
-                                                <div class="text-center">
-                                                    <img src="view/img/fruite-item-3.jpg" class="img-fluid rounded"
-                                                         alt="">
-                                                    <div class="py-4">
-                                                        <a href="#" class="h5">Organic Tomato</a>
-
-                                                        <h4 class="mb-3">3.12 $</h4>
-                                                        <a href="#"
-                                                           class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                            Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6 col-xl-3">
-                                                <div class="text-center">
-                                                    <img src="view/img/fruite-item-4.jpg" class="img-fluid rounded"
-                                                         alt="">
-                                                    <div class="py-2">
-                                                        <a href="#" class="h5">Organic Tomato</a>
-
-                                                        <h4 class="mb-3">3.12 $</h4>
-                                                        <a href="#"
-                                                           class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                            Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Bestsaler Product End -->
-
 
                                 <!-- Fact Start -->
                                 <div class="container-fluid py-5">

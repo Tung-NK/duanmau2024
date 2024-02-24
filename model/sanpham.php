@@ -13,7 +13,7 @@ function delete_sanpham($id)
 
  function loadall_sanpham_home()
  {
-     $sql = "select * from sanpham where 1 order by id asc limit 0,9";
+     $sql = "select * from sanpham where 1 order by id DESC limit 0,9";
      $listsanpham = pdo_query($sql);
      return $listsanpham;
  }

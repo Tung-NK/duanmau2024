@@ -69,63 +69,27 @@
 
                             <div class="col-lg-12">
                                 <h4 class="mb-3">Featured products</h4>
-                                <div class="d-flex align-items-center justify-content-start">
+                                <?php
+                                foreach ($sp_rc as $sp) {
+                                    extract($sp);
+                                    $linksp = "index.php?act=sanphamct&idsp=" . $id;
+                                    $hinh = $img_path . $image;
+                                    $mota_trimmed = strlen($mota) > 150 ? substr($mota, 0, 150) . '...' : $mota;
+                                    echo '<div class="d-flex align-items-center justify-content-start">
                                     <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                        <img src="img/featur-1.jpg" class="img-fluid rounded" alt="">
+                                        <img src="'.$hinh.'" class="img-fluid rounded" alt="">
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">Big Banana</h6>
+                                        <h6 class="mb-2">'.$name.'</h6>
+                                     
                                         <div class="d-flex mb-2">
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">2.99 $</h5>
-                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                            <h5 class="fw-bold me-2">'.$price.' VND</h5>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-start">
-                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                        <img src="img/featur-2.jpg" class="img-fluid rounded" alt="">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">Big Banana</h6>
-                                        <div class="d-flex mb-2">
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">2.99 $</h5>
-                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-start">
-                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                        <img src="img/featur-3.jpg" class="img-fluid rounded" alt="">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">Big Banana</h6>
-                                        <div class="d-flex mb-2">
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">2.99 $</h5>
-                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div> ';
+                                }
+                                ?>
+
 
                             </div>
                             <div class="col-lg-12">
@@ -162,10 +126,13 @@
                                             <p>' . $mota_trimmed . '</p>
                                             <div class="d-flex justify-content-center flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mb-1">' . $price . 'đ</p>
-                                                <a href="#"
-                                                   class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                    cart</a>
+                                                <form action="index.php?act=addtocart" method="post">
+                                                            <input type="hidden" name="id" value="' . $id . '">
+                                                            <input type="hidden" name="name" value="' . $name . '">
+                                                            <input type="hidden" name="image" value="' . $image . '">
+                                                            <input type="hidden" name="price" value="' . $sp['price'] . '">
+                                                            <input class="border-secondary rounded-pill px-4 py-2 mb-4 text-primary" type="submit" name="addtocart" value="Add to cart">
+                                                </form>
                                             </div>
                                         </div>
                                         </a>

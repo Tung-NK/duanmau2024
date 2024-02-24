@@ -173,19 +173,23 @@ if (isset($_GET['act'])) {
                 $email = $_POST['email'];
                 $pass = $_POST['pass'];
 
-                if (!empty($email) && !preg_match('/^\S+@\S+\.\S+$/', $email)) {
-                    $thongbao = "<span style='color:red;'>Vui đúng định dạng</span>";
-                }
-
                 if (empty($email) || empty($pass)) {
                     $thongbao = "<span style='color:red;'>Vui lòng nhập dữ liệu</span>";
                 } else {
+                    // Kiểm tra xác thực tại đây
                     $check_user = check_user($email, $pass);
 
                     if (is_array($check_user)) {
                         $_SESSION['user'] = $check_user;
-                        $thongbao = "Bạn đã đăng nhập thành công.";
-                        header('location: index.php');
+
+                        // Kiểm tra nếu là người dùng quản trị
+                        if ($check_user['role'] == 1) {
+                            header('location: admin/index.php');
+                            exit();
+                        } else {
+                            header('location: index.php');
+                            exit();
+                        }
                     } else {
                         $tbchung = "<span style='color:red;'>Email hoặc mật khẩu không chính xác</span>";
                     }
@@ -193,6 +197,7 @@ if (isset($_GET['act'])) {
             }
             include 'view/taikhoan/dangnhap.php';
             break;
+
 
         case 'thoat':
             session_unset();
@@ -273,6 +278,7 @@ if (isset($_GET['act'])) {
             $dssp = loadall_sanpham("", $_GET['iddm']);
             $listdm = loadall_danhmuc_dm();
             $tendm = load_ten_dm($_GET['iddm']);
+            $sp_rc =load_sanpham_recommend();
 
             if (isset($_GET['iddm']) && ($_GET['iddm']) > 0) {
 //              $iddm=$_GET['iddm'];

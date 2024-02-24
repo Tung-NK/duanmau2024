@@ -7,7 +7,6 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">User</th>
-                <th scope="col">Image</th>
                 <th scope="col">Email</th>
                 <th scope="col">Tel</th>
                 <th scope="col">Rol</th>
@@ -24,7 +23,6 @@
                 <tr>
                     <th scope="row">' . $id . '</th>
                     <td>' . $user . '</td>
-                    <td>' . $image . '</td>
                     <td>' . $email . '</td>
                     <td>' . $phone . '</td>
                     <td>' . $rol . '</td>

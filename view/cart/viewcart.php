@@ -45,7 +45,7 @@
                 foreach ($_SESSION['mycart'] as $cart) {
                     $id = $cart[0];
                     $linksp = "index.php?act=sanphamct&idsp=" . $id;
-                    $hinh = $cart[1];
+                    $hinh = $img_path. $cart[1];
                     $price_number = number_format($cart[3], 0, '.', '.');
                     $ttien = $cart[3] * $cart[4];
                     $tong += $ttien;

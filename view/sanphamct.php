@@ -89,10 +89,7 @@
 
                     <div class="col-lg-12">
                         <div class="position-relative">
-                            <img src="view/img/banner-fruits.jpg" class="img-fluid w-100 rounded" alt="">
-                            <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
-                                <h3 class="text-secondary fw-bold">Fresh <br> Fruits <br> Banner</h3>
-                            </div>
+                            <img src="view/img/bannersp.jpg" class="img-fluid w-100 rounded" alt="">
                         </div>
                     </div>
                 </div>
@@ -117,8 +114,13 @@
                                         <p>' . $mota_trimmed . '</p>
                                         <div class="d-flex justify-content-between flex-lg-wrap">
                                             <p class="text-dark fs-5 fw-bold"> ' . $price . ' </p>
-                                            <a href="#" class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart </a>
+                                            <form action="index.php?act=addtocart" method="post">
+                                                            <input type="hidden" name="id" value="' . $id . '">
+                                                            <input type="hidden" name="name" value="' . $name . '">
+                                                            <input type="hidden" name="image" value="' . $image . '">
+                                                            <input type="hidden" name="price" value="' . $sp['price'] . '">
+                                                            <input class="border-secondary rounded-pill px-4 py-2 mb-4 text-primary" type="submit" name="addtocart" value="Add to cart">
+                                                        </form>
                                         </div>
                                     </div>
                                     </a>

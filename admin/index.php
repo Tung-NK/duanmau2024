@@ -212,13 +212,11 @@ if (isset($_GET['act'])) {
         //thong kê
         case 'thongke':
             $thongke_data = loadall_thongke();
-            $lowest_sold_product = getLowestSoldProduct();
             include 'thongke/listtk.php';
             break;
 
         case 'bieudo':
-            $listthongke = doanh_so();
-            // $lowest_sold_product = getLowestSoldProduct();
+            $listthongke = loadall_thongke();
             include 'thongke/thongke.php';
             break;
 

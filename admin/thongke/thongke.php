@@ -23,10 +23,10 @@
                 var chartDiv = document.getElementById('chart_div');
 
                 var data = google.visualization.arrayToDataTable([
-                    ['Ngay', 'TongTienBanRa'],
+                    ['Tên Danh Mục', 'Số lượng sản phâm'],
                     <?php
                     foreach ($listthongke as $thongke) {
-                        echo "['" . $thongke['Ngay'] . "', " . $thongke['TongTienBanRa'] . "],";
+                        echo "['" . $thongke['tendm'] . "', " . $thongke['countsp'] . "],";
                     }
                     ?>
 
