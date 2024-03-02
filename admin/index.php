@@ -219,7 +219,6 @@ if (isset($_GET['act'])) {
             $listthongke = loadall_thongke();
             include 'thongke/thongke.php';
             break;
-
         default:
             include 'home.php';
             break;

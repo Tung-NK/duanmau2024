@@ -375,6 +375,17 @@
                     </a>
                 </div>
 
+
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <a href="index.php?act=tintuc">
+                        <div class="card card-hover">
+                            <div class="box bg-success text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <h6 class="text-white">Thống kê</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 <!-- <div class="col-md-6 col-lg-4 col-xlg-3">
                     <a href="index.php?act=listdh">
                         <div class="card card-hover">
